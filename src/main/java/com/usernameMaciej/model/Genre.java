@@ -1,5 +1,7 @@
 package com.usernameMaciej.model;
 
+import com.usernameMaciej.exception.GenreNotExistsException;
+
 import java.util.Arrays;
 
 public enum Genre {
@@ -23,7 +25,7 @@ public enum Genre {
                 return value.description;
             }
         }
-        return null;
+        throw new GenreNotExistsException("The provided genre does not exist.");
     }
 
     public static void printAllGenresToChoose() {
