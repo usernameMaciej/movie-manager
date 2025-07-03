@@ -30,7 +30,7 @@ public class ApplicationController {
         }
     }
 
-    private void chooseOption(int userOption) {
+    public void chooseOption(int userOption) {
         Option option = Arrays.stream(Option.values())
                 .filter(x -> userOption == x.getNumber())
                 .findFirst()
@@ -49,7 +49,7 @@ public class ApplicationController {
         }
     }
 
-    private void addActor() {
+    public void addActor() {
         try {
             Actor actor = reader.createActor();
             database.addActor(actor);
@@ -58,7 +58,7 @@ public class ApplicationController {
         }
     }
 
-    private void addTvSeries() {
+    public void addTvSeries() {
         try {
             TvSeries tvSeries = reader.createTvSeries();
             database.addTvSeries(tvSeries);
@@ -67,7 +67,7 @@ public class ApplicationController {
         }
     }
 
-    private void addMovie() {
+    public void addMovie() {
         try {
             Movie movie = reader.createMovie();
             database.addMovie(movie);
@@ -76,11 +76,11 @@ public class ApplicationController {
         }
     }
 
-    private void exit() {
+    public void exit() {
         printLine("End of session, goodbye!");
     }
 
-    private void printAll() {
+    public void printAll() {
         printLine("Movies:");
         for (Movie movie : database.getMovies()) {
             movie.showInfo();
@@ -98,7 +98,7 @@ public class ApplicationController {
     }
 
 
-    private static void printOptions() {
+    public static void printOptions() {
         printLine("---------------");
         Arrays.stream(Option.values())
                 .forEach(option -> printLine(option.optionToChoose()));
